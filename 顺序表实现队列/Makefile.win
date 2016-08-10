@@ -1,0 +1,35 @@
+# Project: SeqQueue
+# Makefile created by Dev-C++ 5.2.0.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o SeqQueue.o SeqList.o $(RES)
+LINKOBJ  = main.o SeqQueue.o SeqList.o $(RES)
+LIBS     = -L"G:/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc  
+INCS     = -I"G:/Dev-Cpp/MinGW32/include" 
+CXXINCS  = -I"G:/Dev-Cpp/MinGW32/include" 
+BIN      = SeqQueue.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS   = $(INCS)  
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before SeqQueue.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "SeqQueue.exe" $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+SeqQueue.o: SeqQueue.c
+	$(CC) -c SeqQueue.c -o SeqQueue.o $(CFLAGS)
+
+SeqList.o: SeqList.c
+	$(CC) -c SeqList.c -o SeqList.o $(CFLAGS)

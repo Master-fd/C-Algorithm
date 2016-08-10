@@ -1,0 +1,32 @@
+# Project: SelectSort
+# Makefile created by Dev-C++ 5.2.0.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o SelectSort.o $(RES)
+LINKOBJ  = main.o SelectSort.o $(RES)
+LIBS     = -L"G:/Dev-Cpp/MinGW32/lib" -static-libstdc++ -static-libgcc  
+INCS     = -I"G:/Dev-Cpp/MinGW32/include" 
+CXXINCS  = -I"G:/Dev-Cpp/MinGW32/include" 
+BIN      = SelectSort.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS   = $(INCS)  
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before SelectSort.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "SelectSort.exe" $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+SelectSort.o: SelectSort.c
+	$(CC) -c SelectSort.c -o SelectSort.o $(CFLAGS)
